@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>差がつく歴史50問｜旧石器〜平安</title>
+<meta name="description" content="小5・四谷大塚レベル　旧石器時代～平安時代　差がつく歴史50問（記述式クイズ）">
+<style>
+:root{
+  --bg:#f5efe3;--card:#fffdf8;--ink:#2b2622;--sub:#6e645a;--line:#e2d7c4;
+  --accent:#b5452f;--accent-ink:#fff;--teal:#2f6f6a;--ans:#f4eee1;--pt:#fff6dc;--pt-line:#e8cf86;
+  --ok:#2e7d4f;--mid:#b97f0c;--ng:#c0392b;--shadow:0 2px 10px rgba(60,40,20,.08);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#1b1917;--card:#25221f;--ink:#eee7dc;--sub:#a79d90;--line:#3a3530;
+    --accent:#e07a5f;--accent-ink:#1b1917;--teal:#6fb3ad;--ans:#2e2a26;--pt:#332c1c;--pt-line:#6d5a27;
+    --ok:#5cbf83;--mid:#e3b04b;--ng:#ec6b5e;--shadow:none;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP","Yu Gothic UI","Meiryo",sans-serif;
+  line-height:1.75;font-size:17px;
+}
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px 60px}
+header.top{text-align:center;padding:12px 0 8px}
+.badge{display:inline-block;font-size:12px;letter-spacing:.08em;color:var(--teal);border:1px solid var(--teal);border-radius:999px;padding:2px 12px;margin-bottom:8px}
+h1{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;font-size:clamp(24px,6vw,34px);margin:4px 0 2px;line-height:1.35}
+h1 small{display:block;font-size:.5em;color:var(--sub);font-weight:normal;margin-bottom:4px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow);margin-top:16px}
+h2{font-size:17px;margin:0 0 12px;color:var(--sub);font-weight:600}
+.secs{display:grid;gap:8px}
+.sec-opt{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;user-select:none}
+.sec-opt input{width:20px;height:20px;accent-color:var(--accent);flex:none}
+.sec-opt .num{margin-left:auto;font-size:13px;color:var(--sub);white-space:nowrap}
+.sec-opt .best{font-size:12px;color:var(--teal);white-space:nowrap}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.toggle{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:15px}
+.toggle input{width:18px;height:18px;accent-color:var(--accent)}
+button{font:inherit;cursor:pointer;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:10px 16px;transition:transform .05s}
+button:active{transform:scale(.98)}
+button:disabled{opacity:.4;cursor:default}
+.btn-main{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:700}
+.btn-wide{width:100%;padding:14px;font-size:17px}
+.btn-link{border:none;background:none;color:var(--sub);padding:6px 4px;text-decoration:underline;font-size:14px}
+.mini{font-size:13px;padding:4px 10px}
+.stack{display:grid;gap:10px;margin-top:16px}
+
+/* quiz */
+.qtop{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:14px;color:var(--sub)}
+.bar{height:6px;background:var(--line);border-radius:99px;overflow:hidden;margin:8px 0 4px}
+.bar>i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+.qno{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;font-size:26px;font-weight:700;color:var(--accent);line-height:1.2}
+.qno .star{font-size:14px;color:var(--mid);margin-left:6px;vertical-align:middle}
+.qsec{font-size:13px;color:var(--sub)}
+.qtext{white-space:pre-wrap;font-size:18px;margin:10px 0 14px}
+textarea{width:100%;min-height:84px;font:inherit;font-size:16px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);resize:vertical}
+textarea:focus{outline:2px solid var(--teal);outline-offset:1px}
+.hint{font-size:12px;color:var(--sub);margin:4px 0 12px}
+.answer{background:var(--ans);border-left:5px solid var(--teal);border-radius:8px;padding:12px 14px;margin-top:12px}
+.answer .lbl,.point .lbl{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--teal)}
+.answer .txt{font-weight:700;font-size:18px;white-space:pre-wrap}
+.mine{font-size:14px;color:var(--sub);margin-top:10px;white-space:pre-wrap}
+.point{background:var(--pt);border:1px dashed var(--pt-line);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:15px;white-space:pre-wrap}
+.point .lbl{color:var(--mid)}
+.grade{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.grade button{padding:12px 4px;font-weight:700;font-size:16px;line-height:1.3}
+.grade button small{display:block;font-weight:normal;font-size:12px}
+.g-o{border-color:var(--ok)!important;color:var(--ok)}
+.g-s{border-color:var(--mid)!important;color:var(--mid)}
+.g-x{border-color:var(--ng)!important;color:var(--ng)}
+.grade-q{font-size:14px;color:var(--sub);text-align:center;margin-top:14px}
+.qnav{display:flex;justify-content:space-between;margin-top:14px}
+
+/* result */
+.score{text-align:center}
+.score .big{font-size:52px;font-weight:800;color:var(--accent);line-height:1.1}
+.score .big small{font-size:20px;color:var(--sub);font-weight:600}
+.tally{display:flex;justify-content:center;gap:18px;margin-top:6px;font-weight:700}
+.tally .o{color:var(--ok)}.tally .s{color:var(--mid)}.tally .x{color:var(--ng)}
+.msg{text-align:center;margin-top:8px;color:var(--sub)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left}
+td.n{text-align:right;white-space:nowrap}
+.meter{height:8px;background:var(--line);border-radius:99px;overflow:hidden;min-width:60px}
+.meter>i{display:block;height:100%;background:var(--teal)}
+.rev{border-top:1px solid var(--line);padding:12px 0}
+.rev:first-of-type{border-top:none}
+.rev .h{font-weight:700;display:flex;gap:8px;align-items:baseline}
+.mark{font-weight:800;min-width:1.4em}
+.mark.o{color:var(--ok)}.mark.s{color:var(--mid)}.mark.x{color:var(--ng)}
+.rev .q{white-space:pre-wrap;font-size:15px}
+.rev .a{white-space:pre-wrap;font-size:15px;background:var(--ans);border-radius:6px;padding:6px 10px;margin-top:6px}
+
+/* list */
+details{border-top:1px solid var(--line);padding:10px 0}
+details:first-of-type{border-top:none}
+summary{cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary .q{white-space:pre-wrap}
+summary .open{font-size:12px;color:var(--teal);margin-top:4px;display:block}
+details[open] summary .open{display:none}
+.list-sec{font-weight:700;color:var(--accent);margin:20px 0 4px;font-size:15px}
+.hidden{display:none!important}
+footer{text-align:center;font-size:12px;color:var(--sub);margin-top:30px}
+@media (max-width:420px){body{font-size:16px}.card{padding:16px}.qtext{font-size:17px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <span class="badge">小5・四谷大塚レベル</span>
+    <h1><small>旧石器時代～平安時代</small>差がつく歴史50問</h1>
+  </header>
+
+  <!-- ===== スタート画面 ===== -->
+  <section id="start">
+    <div class="card">
+      <h2>出題する範囲をえらぼう</h2>
+      <div class="secs" id="secList"></div>
+      <div class="row" style="margin-top:10px">
+        <button class="mini" id="allOn">すべて選ぶ</button>
+        <button class="mini" id="allOff">すべて外す</button>
+      </div>
+    </div>
+    <div class="card">
+      <h2>出題のしかた</h2>
+      <label class="toggle"><input type="checkbox" id="optRandom"> 問題の順番をシャッフルする</label>
+    </div>
+    <div class="stack">
+      <button class="btn-main btn-wide" id="startBtn">スタート</button>
+      <button class="btn-wide" id="retryWrongBtn">前回まちがえた問題だけ（<span id="wrongCount">0</span>問）</button>
+      <button class="btn-wide" id="listBtn">解答一覧で復習する</button>
+    </div>
+    <p class="hint" style="text-align:center;margin-top:16px">
+      答えを考えて（書いて）から「答えを見る」を押し、自分で ○・△・× をつけてね。
+    </p>
+  </section>
+
+  <!-- ===== 出題画面 ===== -->
+  <section id="quiz" class="hidden">
+    <div class="card">
+      <div class="qtop">
+        <span id="qProg">1 / 50</span>
+        <button class="btn-link" id="quitBtn">中断して結果を見る</button>
+      </div>
+      <div class="bar"><i id="qBar"></i></div>
+      <div style="margin-top:10px">
+        <div class="qsec" id="qSec"></div>
+        <div class="qno" id="qNo"></div>
+      </div>
+      <div class="qtext" id="qText"></div>
+
+      <div id="beforeReveal">
+        <textarea id="myAns" placeholder="ここに答えを書いてみよう（書かなくてもOK）"></textarea>
+        <p class="hint">記述問題は、キーワードと「なぜ？」の理由が入っているかがポイント。</p>
+        <button class="btn-main btn-wide" id="revealBtn">答えを見る</button>
+      </div>
+
+      <div id="afterReveal" class="hidden">
+        <div class="mine hidden" id="mineBox"></div>
+        <div class="answer"><div class="lbl">答え</div><div class="txt" id="aText"></div></div>
+        <div class="point hidden" id="pBox"><div class="lbl">⭐ ポイント</div><div id="pText"></div></div>
+        <div class="grade-q">自分の答えはどうだった？</div>
+        <div class="grade">
+          <button class="g-o" data-g="o">○<small>正解</small></button>
+          <button class="g-s" data-g="s">△<small>おしい</small></button>
+          <button class="g-x" data-g="x">×<small>まちがい</small></button>
+        </div>
+      </div>
+
+      <div class="qnav">
+        <button class="mini" id="prevBtn">← 前の問題</button>
+        <button class="mini" id="skipBtn">とばす →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 結果画面 ===== -->
+  <section id="result" class="hidden">
+    <div class="card score">
+      <div style="color:var(--sub);font-size:14px">あなたの得点</div>
+      <div class="big" id="rPct">0<small>点</small></div>
+      <div class="tally"><span class="o" id="rO"></span><span class="s" id="rS"></span><span class="x" id="rX"></span></div>
+      <div class="msg" id="rMsg"></div>
+      <div class="hint" style="margin-top:6px">○＝1点、△＝0.5点として100点満点に換算</div>
+    </div>
+    <div class="card">
+      <h2>範囲別の成績</h2>
+      <table id="rTable"></table>
+    </div>
+    <div class="card" id="rReviewCard">
+      <h2>見直そう（△・×・とばした問題）</h2>
+      <div id="rReview"></div>
+    </div>
+    <div class="stack">
+      <button class="btn-main btn-wide" id="rRetry">△・×の問題にもう一度チャレンジ</button>
+      <button class="btn-wide" id="rTop">トップにもどる</button>
+    </div>
+  </section>
+
+  <!-- ===== 解答一覧 ===== -->
+  <section id="list" class="hidden">
+    <div class="card">
+      <div class="row" style="justify-content:space-between">
+        <h2 style="margin:0">解答一覧（タップで答え）</h2>
+        <div class="row">
+          <button class="mini" id="openAll">全部ひらく</button>
+          <button class="mini" id="closeAll">全部とじる</button>
+        </div>
+      </div>
+      <div id="listBody"></div>
+    </div>
+    <div class="stack"><button class="btn-wide" id="listTop">トップにもどる</button></div>
+  </section>
+
+  <footer>旧石器時代～平安時代　差がつく歴史50問</footer>
+</div>
+
+<script>
+const SECTIONS = [
+  {id:1, title:"Ⅰ　旧石器・縄文・弥生", range:"1～10"},
+  {id:2, title:"Ⅱ　古墳・飛鳥時代", range:"11～20"},
+  {id:3, title:"Ⅲ　飛鳥～奈良時代", range:"21～32"},
+  {id:4, title:"Ⅳ　奈良～平安への流れ", range:"33～40"},
+  {id:5, title:"Ⅴ　平安時代・差がつく問題", range:"41～50"}
+];
+
+const Q = [
+/* ---------- Ⅰ ---------- */
+{n:1,s:1,q:"日本列島がまだ大陸と陸続きだったころ、人々は石を打ち欠いてつくった道具を使っていました。このような石器を何といいますか。",
+ a:"打製石器"},
+{n:2,s:1,q:"旧石器時代の人々が、主にどのような動物を追って移動しながら生活していたか、代表的な動物を2つ答えなさい。",
+ a:"ナウマンゾウ、オオツノジカ",
+ p:"ほかにマンモス（北海道）なども。大型動物を追って移動していたので、定住はしていなかった。"},
+{n:3,s:1,q:"群馬県にある岩宿遺跡が重要な遺跡とされているのは、ここから何が発見されたからですか。",
+ a:"日本列島に旧石器時代の人々が住んでいたことを示す打製石器が発見されたから。",
+ p:"相沢忠洋が関東ローム層から打製石器を発見。それまで「日本に旧石器時代はなかった」と考えられていた。"},
+{n:4,s:1,q:"縄文時代の人々が、食べ物の残りや貝がらなどを捨てた場所を何といいますか。また、これが当時の生活を知る重要な手がかりになる理由を簡単に答えなさい。",
+ a:"貝塚。\n食べ物や貝などが残されていて、当時の人々の生活を知ることができるから。",
+ p:"大森貝塚（東京都）はモースが発見。何を食べていたか・どんな道具を使ったかがわかる。"},
+{n:5,s:1,q:"縄文時代の人々が、食べ物を煮たり、貯蔵したりするために使った道具は何ですか。",
+ a:"土器（縄文土器）",
+ p:"縄目の文様がついた、厚手で黒褐色の土器。"},
+{n:6,s:1,q:"縄文時代の人々が、豊作や生命の誕生などを願って作ったと考えられている土製の人形を何といいますか。",
+ a:"土偶",
+ p:"「土偶（縄文）」と「埴輪（古墳）」の混同に注意！"},
+{n:7,s:1,q:"弥生時代に米づくりが広まったことで、人々の生活にはどのような変化が起こりましたか。\n「むら」という言葉を使って説明しなさい。",
+ a:"米を育てるために同じ場所に定住するようになり、むらができた。",
+ p:"米づくり → 定住 → むら → 土地・水をめぐる争い → 身分の差\nこの流れは、単語だけでなく因果関係で覚えておくと強い。"},
+{n:8,s:1,q:"弥生時代に米づくりとともに大陸から伝わった金属器を2種類答えなさい。",
+ a:"青銅器と鉄器",
+ p:"青銅器（銅鐸・銅剣など）は主に祭りの道具、鉄器は農具や武器として使われた。"},
+{n:9,s:1,q:"弥生時代の米づくりは、日本で自然に始まったのではなく、大陸から伝わったと考えられています。主にどの地域から伝わったと考えられていますか。",
+ a:"朝鮮半島",
+ p:"中国大陸から朝鮮半島を経て、九州北部に伝わったと考えられている。"},
+{n:10,s:1,q:"弥生時代になると、むら同士の争いが増えたと考えられています。その理由を、米づくりとの関係から説明しなさい。",
+ a:"米を育てるための土地や水などをめぐって、むら同士が争うようになったから。",
+ p:"たくわえた米をうばい合う争いも。吉野ヶ里遺跡（佐賀県）の堀やさくは、争いに備えたもの。"},
+
+/* ---------- Ⅱ ---------- */
+{n:11,s:2,q:"3世紀ごろ、近畿地方を中心に大きな勢力が成立しました。この勢力を何といいますか。",
+ a:"大和政権（大和朝廷）"},
+{n:12,s:2,q:"古墳のまわりや上に並べられた、人物や動物などをかたどった土製品を何といいますか。",
+ a:"埴輪"},
+{n:13,s:2,q:"日本最大の古墳とされる大仙古墳は、どのような形をしていますか。",
+ a:"前方後円墳",
+ p:"大阪府堺市にある。仁徳天皇の墓と伝えられている。"},
+{n:14,s:2,q:"大和政権の王である大王が、各地の豪族を従えるために行った政治のしくみを何といいますか。\n「氏」という言葉を使って説明しなさい。",
+ a:"氏姓制度。\n豪族を氏という集団にまとめ、それぞれの地位や役割を姓によって定めた。"},
+{n:15,s:2,q:"聖徳太子が、家柄ではなく能力や功績を重視して役人を取り立てるために定めた制度は何ですか。",
+ a:"冠位十二階"},
+{n:16,s:2,q:"聖徳太子が定めた十七条の憲法では、役人たちにどのようなことを求めましたか。特に重要な考えを一つ答えなさい。",
+ a:"役人は和を大切にして協力して政治を行うこと。",
+ p:"「和を以て貴しとなす」をそのまま覚えてもいいが、記述なら\n「役人同士が争わず、協力して政治を行うことを求めた」と書ければOK。"},
+{n:17,s:2,q:"聖徳太子が中国の隋に派遣した使いを何といいますか。また、その人物の名前も答えなさい。",
+ a:"遣隋使・小野妹子",
+ p:"607年。隋と対等な国の関係を結ぼうとした。"},
+{n:18,s:2,q:"645年、中大兄皇子と中臣鎌足らが蘇我氏を倒しました。この出来事を何といいますか。",
+ a:"乙巳の変（いっしのへん）",
+ p:"この事件から始まった一連の政治改革が「大化の改新」。"},
+{n:19,s:2,q:"大化の改新では、土地や人民を国家が支配する考え方が示されました。この土地と人民を国家のものとする考え方を何といいますか。",
+ a:"公地公民"},
+{n:20,s:2,q:"中大兄皇子は後に天智天皇となります。天智天皇が日本で初めて正式な戸籍をつくったとされるのは何という戸籍ですか。",
+ a:"庚午年籍（こうごねんじゃく）",
+ p:"670年につくられた。"},
+
+/* ---------- Ⅲ ---------- */
+{n:21,s:3,q:"天智天皇の死後、皇位をめぐって大きな戦いが起こりました。この戦いを何といいますか。また、勝利した人物は誰ですか。",
+ a:"壬申の乱・大海人皇子（のちの天武天皇）",
+ p:"672年。天智天皇の弟・大海人皇子が、天智天皇の子・大友皇子に勝った。"},
+{n:22,s:3,q:"壬申の乱に勝利した大海人皇子は、天皇になりました。この天皇を何といいますか。",
+ a:"天武天皇"},
+{n:23,s:3,q:"701年に完成した、日本で最初の本格的な律令は何ですか。\nまた、中心となって制定に関わった人物も答えなさい。",
+ a:"大宝律令・藤原不比等",
+ p:"23・27・28はセットで！\n701年 大宝律令 → 律令国家\n↓\n743年 墾田永年私財法\n↓\n開墾した土地を永久に所有できる\n↓\n貴族や寺社などが土地を広げる"},
+{n:24,s:3,q:"律令政治では、政治を行う中央の役所が「二官八省」に分けられました。二官のうち、神々に関する仕事を担当した役所を何といいますか。",
+ a:"神祇官（じんぎかん）",
+ p:"もう一つの太政官（だいじょうかん）は、一般の政治を担当した。"},
+{n:25,s:3,q:"奈良時代、6歳以上の男女に口分田を与え、死後に国へ返させる制度を何といいますか。",
+ a:"班田収授法"},
+{n:26,s:3,q:"口分田を与えられた人々が、国に納めた税を3つ答えなさい。",
+ a:"租・庸・調",
+ p:"租＝稲、庸＝布（労役のかわり）、調＝地方の特産物。ほかに兵役などの負担もあった。"},
+{n:27,s:3,q:"奈良時代、農民の負担が重くなった理由の一つとして、人口が増え、口分田が不足したことがあります。そこで政府が新しく認めた制度は何ですか。",
+ a:"墾田永年私財法",
+ p:"743年。その前に三世一身の法（723年）が出されたが、うまくいかなかった。"},
+{n:28,s:3,q:"墾田永年私財法によって、土地の所有についてどのようなことが認められましたか。",
+ a:"新しく開墾した土地を、永久に自分の土地として所有すること。",
+ p:"→ 公地公民のしくみがくずれ始めるきっかけに（のちの荘園へ）。"},
+{n:29,s:3,q:"聖武天皇が国ごとに建てさせた寺を何といいますか。また、その中心となる寺を何といいますか。",
+ a:"国分寺・東大寺",
+ p:"国ごとに国分寺と国分尼寺を建てさせた。東大寺は「総国分寺」。"},
+{n:30,s:3,q:"聖武天皇が東大寺に大仏をつくらせた理由を、「仏教」という言葉を使って説明しなさい。",
+ a:"仏教の力によって国を守り、人々の不安をしずめ、国を安定させようとしたから。",
+ p:"当時は伝染病・ききん・反乱などで社会が不安定だった。行基も協力した。"},
+{n:31,s:3,q:"奈良時代に、唐から来日して日本の仏教の発展に大きく貢献した僧は誰ですか。\nまた、その人物が建立した寺院も答えなさい。",
+ a:"鑑真・唐招提寺",
+ p:"何度も航海に失敗し、目が見えなくなりながらも来日した。"},
+{n:32,s:3,q:"奈良時代の都・平城京には、外国から多くの人や文化が伝わりました。このように、唐を中心とした外国の文化の影響を強く受けた文化を何といいますか。",
+ a:"天平文化",
+ p:"正倉院には、シルクロードを通って伝わった品々も収められている。"},
+
+/* ---------- Ⅳ ---------- */
+{n:33,s:4,q:"794年、桓武天皇は都を平安京に移しました。なぜ桓武天皇は都を移したのですか。\n奈良時代の政治との関係にふれて答えなさい。",
+ a:"奈良の仏教勢力が政治に口出しするなど、政治が乱れることを避けるため。",
+ p:"「なぜ平安京？」をセットで\n桓武天皇\n↓\n奈良の仏教勢力から政治を離す\n↓\n長岡京（784年）\n↓\n平安京（794年）\n↓\n平安時代"},
+{n:34,s:4,q:"桓武天皇が東北地方の蝦夷を制圧するために派遣した人物は誰ですか。\nまた、その人物に与えられた役職も答えなさい。",
+ a:"坂上田村麻呂・征夷大将軍"},
+{n:35,s:4,q:"最澄が開いた仏教の宗派は何ですか。また、その中心となった寺を何といいますか。",
+ a:"天台宗・延暦寺",
+ p:"延暦寺は比叡山（滋賀県・京都府）。"},
+{n:36,s:4,q:"空海が開いた仏教の宗派は何ですか。また、その中心となった寺を何といいますか。",
+ a:"真言宗・金剛峯寺",
+ p:"金剛峯寺は高野山（和歌山県）。最澄とセットで区別して覚えよう。"},
+{n:37,s:4,q:"最澄と空海は、ともに唐へ渡りました。2人が唐へ渡った目的として最も重要なことを、「仏教」という言葉を使って説明しなさい。",
+ a:"中国で発達した新しい仏教を学び、日本に伝えるため。"},
+{n:38,s:4,q:"894年、菅原道真の提案によって遣唐使が停止されました。なぜ遣唐使は停止されたのですか。\n唐の状況にふれて答えなさい。",
+ a:"唐が衰え、航海も危険になったため。",
+ p:"語呂合わせ「白紙（894）にもどそう遣唐使」。唐は907年にほろびた。"},
+{n:39,s:4,q:"遣唐使が停止されたあと、日本では外国の文化をそのまま取り入れるのではなく、日本の風土や生活に合った文化が発達していきました。この文化を何といいますか。",
+ a:"国風文化"},
+{n:40,s:4,q:"平安時代に、貴族の女性を中心にかな文字が発達しました。かな文字が発達したことによって、どのような文学作品が生まれましたか。代表的な作品を2つ答えなさい。",
+ a:"『源氏物語』『枕草子』",
+ p:"源氏物語＝紫式部、枕草子＝清少納言。作者もセットで。"},
+
+/* ---------- Ⅴ ---------- */
+{n:41,s:5,star:true,q:"藤原氏が天皇の代わりに政治を行う「摂関政治」を行うことができた大きな理由は何ですか。\n天皇との婚姻関係にふれて説明しなさい。",
+ a:"藤原氏が娘を天皇の后にして、天皇との間に生まれた皇子を天皇にすることで、天皇の祖父として政治を行ったから。",
+ p:"キーワードは「娘を天皇の后に」「生まれた子を天皇に」「祖父（外戚）として」。"},
+{n:42,s:5,star:true,q:"藤原道長は、自分の娘を天皇の后にすることで藤原氏の力を強めました。道長が「この世をば……」という有名な歌を詠んだのは、どのような状況だったからですか。",
+ a:"自分の娘を次々と天皇の后にし（3人の娘が后となった）、藤原氏の権力が最も強くなっていたときだったから。",
+ p:"「この世をば　わが世とぞ思ふ　望月の　欠けたることも　なしと思へば」\n1018年、三女の威子が后になった祝いの席で詠んだ。「満月のように欠けたところがない」＝権力の絶頂。"},
+{n:43,s:5,star:true,q:"藤原道長の子で、摂関政治を最もさかんにした人物は誰ですか。",
+ a:"藤原頼通",
+ p:"道長・頼通の親子の時代が摂関政治の全盛期。頼通は平等院鳳凰堂を建てた。"},
+{n:44,s:5,star:true,q:"摂関政治では、藤原氏は天皇が幼いときと成人したときで、異なる役職について政治を行いました。それぞれ何という役職ですか。",
+ a:"天皇が幼いとき：摂政\n天皇が成人したとき：関白"},
+{n:45,s:5,star:true,q:"平安時代に地方の政治を任された国司の中には、任地で力を蓄える者もいました。一方、地方では土地を守るために武装する人々が現れました。このような人々が、やがて何と呼ばれるようになりましたか。",
+ a:"武士"},
+{n:46,s:5,star:true,q:"武士の中でも、天皇の子孫から出た平氏や源氏が有力になりました。平氏と源氏がともに武士として勢力をのばした理由を、地方の政治との関係から説明しなさい。",
+ a:"地方の政治を任された国司や、土地を守るために武装した人々の中から武士が成長し、平氏や源氏がその勢力をまとめたから。",
+ p:"天皇の子孫という家柄をもつ平氏・源氏が、国司などとして地方に下り、各地の武士をまとめる「棟梁（かしら）」となった点がポイント。"},
+{n:47,s:5,star:true,q:"935年ごろ、関東地方で大きな反乱を起こした人物は誰ですか。",
+ a:"平将門",
+ p:"自らを「新皇」と名のった。"},
+{n:48,s:5,star:true,q:"939年、瀬戸内海周辺で反乱を起こした人物は誰ですか。",
+ a:"藤原純友",
+ p:"平将門の乱とあわせて「承平・天慶の乱」。どちらも武士の力でしずめられ、武士の力が認められるきっかけに。"},
+{n:49,s:5,star:true,q:"平安時代には、日本独自の文化が発達しました。次の3つについて、それぞれ代表的なものを1つずつ答えなさい。\n①文学\n②建築\n③絵画",
+ a:"①源氏物語\n②寝殿造\n③大和絵",
+ p:"①枕草子、②平等院鳳凰堂、③絵巻物（源氏物語絵巻）なども可。"},
+{n:50,s:5,star:true,q:"★総合問題\n次の人物を、古い順に並べなさい。また、それぞれの人物が関係する出来事を1つずつ答えなさい。\n聖徳太子・聖武天皇・桓武天皇・藤原道長・空海",
+ a:"聖徳太子 → 聖武天皇 → 桓武天皇 → 空海 → 藤原道長\n\n聖徳太子：冠位十二階・十七条の憲法・遣隋使\n聖武天皇：国分寺・東大寺の大仏をつくらせた\n桓武天皇：平安京に都を移した（794年）\n空海：真言宗を開いた（金剛峯寺）\n藤原道長：摂関政治の全盛（「この世をば」の歌）",
+ p:"空海は桓武天皇の時代に唐へ渡り（804年）、帰国後に真言宗を開いた。桓武天皇（平安遷都）より後、と整理しよう。"}
+];
+
+/* ============ 状態 ============ */
+const $ = id => document.getElementById(id);
+const LS_KEY = "rekishi50_v1";
+let st = {queue:[], pos:0, marks:{}, revealed:false, mine:{}};
+
+function load(){ try{ return JSON.parse(localStorage.getItem(LS_KEY)) || {}; }catch(e){ return {}; } }
+function save(obj){ try{ localStorage.setItem(LS_KEY, JSON.stringify(obj)); }catch(e){} }
+let saved = load(); // {wrong:[n...], best:{secId:pct}, secs:[...], random:bool}
+
+function show(id){
+  ["start","quiz","result","list"].forEach(s => $(s).classList.toggle("hidden", s!==id));
+  window.scrollTo({top:0});
+}
+
+/* ============ スタート画面 ============ */
+function buildStart(){
+  const box = $("secList"); box.innerHTML = "";
+  const chosen = saved.secs || SECTIONS.map(s=>s.id);
+  SECTIONS.forEach(sec=>{
+    const cnt = Q.filter(q=>q.s===sec.id).length;
+    const lab = document.createElement("label");
+    lab.className = "sec-opt";
+    const cb = document.createElement("input");
+    cb.type="checkbox"; cb.value=sec.id; cb.checked = chosen.includes(sec.id);
+    const t = document.createElement("span"); t.textContent = sec.title;
+    const best = document.createElement("span"); best.className="best";
+    if(saved.best && saved.best[sec.id]!=null) best.textContent = "最高 " + saved.best[sec.id] + "%";
+    const num = document.createElement("span"); num.className="num"; num.textContent = sec.range + "（" + cnt + "問）";
+    lab.append(cb,t,num,best);
+    box.appendChild(lab);
+  });
+  $("optRandom").checked = !!saved.random;
+  const wc = (saved.wrong||[]).length;
+  $("wrongCount").textContent = wc;
+  $("retryWrongBtn").disabled = wc===0;
+}
+function chosenSecs(){ return [...document.querySelectorAll("#secList input:checked")].map(c=>+c.value); }
+$("allOn").onclick = ()=>document.querySelectorAll("#secList input").forEach(c=>c.checked=true);
+$("allOff").onclick = ()=>document.querySelectorAll("#secList input").forEach(c=>c.checked=false);
+
+function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+
+function begin(nums){
+  if(!nums.length){ alertBox("出題する範囲を1つ以上えらんでね。"); return; }
+  if($("optRandom").checked) shuffle(nums);
+  st = {queue:nums, pos:0, marks:{}, revealed:false, mine:{}};
+  show("quiz"); renderQ();
+}
+function alertBox(msg){
+  const p = document.createElement("p");
+  p.textContent = msg; p.style.cssText="color:var(--ng);text-align:center;font-weight:700";
+  $("startBtn").before(p); setTimeout(()=>p.remove(),2500);
+}
+$("startBtn").onclick = ()=>{
+  const secs = chosenSecs();
+  saved.secs = secs; saved.random = $("optRandom").checked; save(saved);
+  begin(Q.filter(q=>secs.includes(q.s)).map(q=>q.n));
+};
+$("retryWrongBtn").onclick = ()=>begin([...(saved.wrong||[])]);
+$("listBtn").onclick = ()=>{ buildList(); show("list"); };
+
+/* ============ 出題 ============ */
+const qOf = n => Q.find(q=>q.n===n);
+function renderQ(){
+  const n = st.queue[st.pos], q = qOf(n);
+  const total = st.queue.length;
+  $("qProg").textContent = (st.pos+1) + " / " + total;
+  $("qBar").style.width = (st.pos/total*100) + "%";
+  $("qSec").textContent = SECTIONS.find(s=>s.id===q.s).title;
+  $("qNo").innerHTML = "";
+  $("qNo").append("第" + q.n + "問");
+  if(q.star){ const s=document.createElement("span"); s.className="star"; s.textContent="差がつく"; $("qNo").append(s); }
+  $("qText").textContent = q.q;
+  $("myAns").value = st.mine[n] || "";
+  st.revealed = false;
+  $("beforeReveal").classList.remove("hidden");
+  $("afterReveal").classList.add("hidden");
+  $("prevBtn").disabled = st.pos===0;
+  $("skipBtn").textContent = st.pos===total-1 ? "結果を見る →" : "とばす →";
+}
+$("revealBtn").onclick = ()=>{
+  const n = st.queue[st.pos], q = qOf(n);
+  const mine = $("myAns").value.trim();
+  st.mine[n] = mine;
+  $("mineBox").classList.toggle("hidden", !mine);
+  $("mineBox").textContent = mine ? "あなたの答え：" + mine : "";
+  $("aText").textContent = q.a;
+  $("pBox").classList.toggle("hidden", !q.p);
+  $("pText").textContent = q.p || "";
+  $("beforeReveal").classList.add("hidden");
+  $("afterReveal").classList.remove("hidden");
+  st.revealed = true;
+  // 既に採点済みならハイライト
+  document.querySelectorAll(".grade button").forEach(b=>b.style.background = st.marks[n]===b.dataset.g ? "var(--ans)" : "");
+};
+document.querySelectorAll(".grade button").forEach(b=>{
+  b.onclick = ()=>{ st.marks[st.queue[st.pos]] = b.dataset.g; next(); };
+});
+function next(){
+  if(st.pos < st.queue.length-1){ st.pos++; renderQ(); } else finish();
+}
+$("skipBtn").onclick = ()=>{ st.mine[st.queue[st.pos]] = $("myAns").value.trim(); next(); };
+$("prevBtn").onclick = ()=>{ if(st.pos>0){ st.mine[st.queue[st.pos]] = $("myAns").value.trim(); st.pos--; renderQ(); } };
+$("quitBtn").onclick = ()=>finish(true);
+
+/* ============ 結果 ============ */
+function finish(quit){
+  const asked = quit ? st.queue.slice(0, st.pos + (st.marks[st.queue[st.pos]]?1:0)) : st.queue;
+  const list = asked.length ? asked : st.queue.slice(0,0);
+  let o=0,s=0,x=0,skip=0;
+  list.forEach(n=>{ const m=st.marks[n]; if(m==="o")o++; else if(m==="s")s++; else if(m==="x")x++; else skip++; });
+  const total = list.length;
+  const pct = total ? Math.round((o + s*0.5)/total*100) : 0;
+  $("rPct").innerHTML = ""; $("rPct").append(String(pct)); const sm=document.createElement("small"); sm.textContent="点"; $("rPct").append(sm);
+  $("rO").textContent = "○ " + o; $("rS").textContent = "△ " + s; $("rX").textContent = "× " + x + (skip? "　（とばし " + skip + "）":"");
+  $("rMsg").textContent = total===0 ? "まだ1問も答えていません。" :
+    pct>=90 ? "すばらしい！上位をねらえる実力です。" :
+    pct>=70 ? "よくできました！△・×を見直せば完ぺき。" :
+    pct>=50 ? "あと一歩！流れ（因果関係）を意識して復習しよう。" :
+              "解答一覧で流れをつかんでから、もう一度チャレンジ！";
+
+  // 範囲別
+  const tb = $("rTable"); tb.innerHTML = "<tr><th>範囲</th><th></th><th style='text-align:right'>得点率</th></tr>";
+  saved.best = saved.best || {};
+  SECTIONS.forEach(sec=>{
+    const ns = list.filter(n=>qOf(n).s===sec.id);
+    if(!ns.length) return;
+    const sc = ns.reduce((a,n)=>a + (st.marks[n]==="o"?1:st.marks[n]==="s"?.5:0),0);
+    const p = Math.round(sc/ns.length*100);
+    // 範囲の全問を解いたときだけ最高記録を更新
+    if(ns.length === Q.filter(q=>q.s===sec.id).length && (saved.best[sec.id]==null || p>saved.best[sec.id])) saved.best[sec.id]=p;
+    const tr = document.createElement("tr");
+    const td1=document.createElement("td"); td1.textContent=sec.title;
+    const td2=document.createElement("td"); td2.style.width="35%"; td2.innerHTML='<div class="meter"><i style="width:'+p+'%"></i></div>';
+    const td3=document.createElement("td"); td3.className="n"; td3.textContent=p+"%（"+ns.length+"問）";
+    tr.append(td1,td2,td3); tb.appendChild(tr);
+  });
+
+  // 見直し
+  const wrong = list.filter(n=>st.marks[n]!=="o");
+  const rv = $("rReview"); rv.innerHTML="";
+  $("rReviewCard").classList.toggle("hidden", !wrong.length);
+  wrong.slice().sort((a,b)=>a-b).forEach(n=>{
+    const q=qOf(n), m=st.marks[n];
+    const d=document.createElement("div"); d.className="rev";
+    const h=document.createElement("div"); h.className="h";
+    const mk=document.createElement("span"); mk.className="mark "+(m||"x"); mk.textContent = m==="s"?"△":m==="x"?"×":"－";
+    const t=document.createElement("span"); t.textContent="第"+n+"問";
+    h.append(mk,t);
+    const qq=document.createElement("div"); qq.className="q"; qq.textContent=q.q;
+    const aa=document.createElement("div"); aa.className="a"; aa.textContent="答え："+q.a;
+    d.append(h,qq,aa);
+    if(st.mine[n]){ const mm=document.createElement("div"); mm.className="mine"; mm.textContent="あなたの答え："+st.mine[n]; d.append(mm); }
+    rv.appendChild(d);
+  });
+  $("rRetry").disabled = !wrong.length;
+
+  // 「まちがえた問題」を記録（今回出題した分を更新）
+  const set = new Set(saved.wrong||[]);
+  list.forEach(n=>{ if(st.marks[n]==="o") set.delete(n); else if(st.marks[n]) set.add(n); });
+  saved.wrong = [...set].sort((a,b)=>a-b);
+  save(saved);
+
+  st.lastWrong = wrong;
+  show("result");
+}
+$("rRetry").onclick = ()=>begin([...st.lastWrong].sort((a,b)=>a-b));
+$("rTop").onclick = ()=>{ buildStart(); show("start"); };
+
+/* ============ 解答一覧 ============ */
+function buildList(){
+  const body = $("listBody"); body.innerHTML="";
+  SECTIONS.forEach(sec=>{
+    const h=document.createElement("div"); h.className="list-sec"; h.textContent=sec.title+"（"+sec.range+"）";
+    body.appendChild(h);
+    Q.filter(q=>q.s===sec.id).forEach(q=>{
+      const d=document.createElement("details");
+      const sm=document.createElement("summary");
+      const qq=document.createElement("div"); qq.className="q"; qq.textContent=q.n+". "+q.q;
+      const op=document.createElement("span"); op.className="open"; op.textContent="▶ 答えを見る";
+      sm.append(qq,op);
+      const a=document.createElement("div"); a.className="answer";
+      const al=document.createElement("div"); al.className="lbl"; al.textContent="答え";
+      const at=document.createElement("div"); at.className="txt"; at.textContent=q.a;
+      a.append(al,at);
+      d.append(sm,a);
+      if(q.p){ const p=document.createElement("div"); p.className="point"; const pl=document.createElement("div"); pl.className="lbl"; pl.textContent="⭐ ポイント"; const pt=document.createElement("div"); pt.textContent=q.p; p.append(pl,pt); d.append(p); }
+      body.appendChild(d);
+    });
+  });
+}
+$("openAll").onclick = ()=>document.querySelectorAll("#listBody details").forEach(d=>d.open=true);
+$("closeAll").onclick = ()=>document.querySelectorAll("#listBody details").forEach(d=>d.open=false);
+$("listTop").onclick = ()=>{ buildStart(); show("start"); };
+
+buildStart();
+</script>
+</body>
+</html>
