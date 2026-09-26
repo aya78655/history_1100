@@ -7,27 +7,30 @@
 <meta name="description" content="小5・四谷大塚レベル　旧石器時代～平安時代　差がつく歴史50問（記述式クイズ）">
 <style>
 :root{
+  --page:#1F2F54;--on-page:#eef1f8;--on-page-sub:#b9c3da;--gold:#e8c36a;
   --bg:#f5efe3;--card:#fffdf8;--ink:#2b2622;--sub:#6e645a;--line:#e2d7c4;
   --accent:#b5452f;--accent-ink:#fff;--teal:#2f6f6a;--ans:#f4eee1;--pt:#fff6dc;--pt-line:#e8cf86;
   --ok:#2e7d4f;--mid:#b97f0c;--ng:#c0392b;--shadow:0 2px 10px rgba(60,40,20,.08);
 }
 @media (prefers-color-scheme: dark){
   :root{
-    --bg:#1b1917;--card:#25221f;--ink:#eee7dc;--sub:#a79d90;--line:#3a3530;
-    --accent:#e07a5f;--accent-ink:#1b1917;--teal:#6fb3ad;--ans:#2e2a26;--pt:#332c1c;--pt-line:#6d5a27;
+    --bg:#22335a;--card:#2a3a61;--ink:#eef1f8;--sub:#b3bdd4;--line:#41537f;
+    --accent:#e07a5f;--accent-ink:#1F2F54;--teal:#7cc4bd;--ans:#34466f;--pt:#3a3f52;--pt-line:#6d5a27;
     --ok:#5cbf83;--mid:#e3b04b;--ng:#ec6b5e;--shadow:none;
   }
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{
-  margin:0;background:var(--bg);color:var(--ink);
+  margin:0;background:var(--page);color:var(--ink);
   font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP","Yu Gothic UI","Meiryo",sans-serif;
   line-height:1.75;font-size:17px;
 }
 .wrap{max-width:760px;margin:0 auto;padding:20px 16px 60px}
 header.top{text-align:center;padding:12px 0 8px}
-.badge{display:inline-block;font-size:12px;letter-spacing:.08em;color:var(--teal);border:1px solid var(--teal);border-radius:999px;padding:2px 12px;margin-bottom:8px}
+.badge{display:inline-block;font-size:12px;letter-spacing:.08em;color:var(--gold);border:1px solid var(--gold);border-radius:999px;padding:2px 12px;margin-bottom:8px}
+header.top h1{color:var(--on-page)}
+header.top h1 small{color:var(--on-page-sub)!important}
 h1{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;font-size:clamp(24px,6vw,34px);margin:4px 0 2px;line-height:1.35}
 h1 small{display:block;font-size:.5em;color:var(--sub);font-weight:normal;margin-bottom:4px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow);margin-top:16px}
@@ -66,14 +69,6 @@ textarea:focus{outline:2px solid var(--teal);outline-offset:1px}
 .mine{font-size:14px;color:var(--sub);margin-top:10px;white-space:pre-wrap}
 .point{background:var(--pt);border:1px dashed var(--pt-line);border-radius:8px;padding:10px 14px;margin-top:10px;font-size:15px;white-space:pre-wrap}
 .point .lbl{color:var(--mid)}
-.grade{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
-.grade button{padding:12px 4px;font-weight:700;font-size:16px;line-height:1.3}
-.grade button small{display:block;font-weight:normal;font-size:12px}
-.g-o{border-color:var(--ok)!important;color:var(--ok)}
-.g-s{border-color:var(--mid)!important;color:var(--mid)}
-.g-x{border-color:var(--ng)!important;color:var(--ng)}
-.grade-q{font-size:14px;color:var(--sub);text-align:center;margin-top:14px}
-.qnav{display:flex;justify-content:space-between;margin-top:14px}
 
 /* result */
 .score{text-align:center}
@@ -105,7 +100,17 @@ summary .open{font-size:12px;color:var(--teal);margin-top:4px;display:block}
 details[open] summary .open{display:none}
 .list-sec{font-weight:700;color:var(--accent);margin:20px 0 4px;font-size:15px}
 .hidden{display:none!important}
-footer{text-align:center;font-size:12px;color:var(--sub);margin-top:30px}
+.judge{text-align:center;font-size:28px;font-weight:800;border-radius:12px;padding:12px;margin-bottom:4px;animation:pop .25s ease-out}
+.judge.ok{color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent);border:2px solid var(--ok)}
+.judge.ng{color:var(--ng);background:color-mix(in srgb,var(--ng) 10%,transparent);border:2px solid var(--ng)}
+.judge small{display:block;font-size:13px;font-weight:600;color:var(--sub);margin-top:2px}
+@keyframes pop{from{transform:scale(.9);opacity:0}to{transform:scale(1);opacity:1}}
+.streak{display:inline-block;margin-left:10px;font-size:13px;font-weight:800;color:#fff;background:linear-gradient(90deg,#e0662f,#d9412b);border-radius:999px;padding:2px 10px;animation:pop .25s ease-out}
+.streak.big{background:linear-gradient(90deg,#e8a322,#e0462b);box-shadow:0 0 0 2px rgba(232,163,34,.35)}
+.judge .combo{display:block;font-size:16px;font-weight:800;color:#d9412b;margin-top:4px}
+.rbest{text-align:center;margin-top:6px;font-weight:700;color:var(--accent)}
+.warn{color:var(--ng);font-weight:700;font-size:14px;margin:0 0 8px}
+footer{text-align:center;font-size:12px;color:var(--on-page-sub);margin-top:30px}
 @media (max-width:420px){body{font-size:16px}.card{padding:16px}.qtext{font-size:17px}}
 </style>
 </head>
@@ -135,8 +140,9 @@ footer{text-align:center;font-size:12px;color:var(--sub);margin-top:30px}
       <button class="btn-wide" id="retryWrongBtn">前回まちがえた問題だけ（<span id="wrongCount">0</span>問）</button>
       <button class="btn-wide" id="listBtn">解答一覧で復習する</button>
     </div>
-    <p class="hint" style="text-align:center;margin-top:16px">
-      答えを考えて（書いて）から「答えを見る」を押し、自分で ○・△・× をつけてね。
+    <p class="hint" style="text-align:center;margin-top:16px;color:var(--on-page-sub)">
+      答えを入力して「答え合わせ」を押すと、正解・不正解が表示されます。<br>
+      （Enterキーでも答え合わせできます）
     </p>
   </section>
 
@@ -144,7 +150,7 @@ footer{text-align:center;font-size:12px;color:var(--sub);margin-top:30px}
   <section id="quiz" class="hidden">
     <div class="card">
       <div class="qtop">
-        <span id="qProg">1 / 50</span>
+        <span><span id="qProg">1 / 50</span><span class="streak hidden" id="streak"></span></span>
         <button class="btn-link" id="quitBtn">中断して結果を見る</button>
       </div>
       <div class="bar"><i id="qBar"></i></div>
@@ -155,26 +161,19 @@ footer{text-align:center;font-size:12px;color:var(--sub);margin-top:30px}
       <div class="qtext" id="qText"></div>
 
       <div id="beforeReveal">
-        <textarea id="myAns" placeholder="ここに答えを書いてみよう（書かなくてもOK）"></textarea>
-        <p class="hint">記述問題は、キーワードと「なぜ？」の理由が入っているかがポイント。</p>
-        <button class="btn-main btn-wide" id="revealBtn">答えを見る</button>
+        <textarea id="myAns" placeholder="ここに答えを入力（漢字でもひらがなでもOK）"></textarea>
+        <p class="hint" id="qHint">記述問題は、大事なキーワードが入っているかで判定します。</p>
+        <p class="warn hidden" id="emptyWarn">答えを入力してね。</p>
+        <button class="btn-main btn-wide" id="checkBtn">答え合わせ</button>
+        <div style="text-align:center;margin-top:8px"><button class="btn-link" id="giveupBtn">わからない（答えを見る）</button></div>
       </div>
 
       <div id="afterReveal" class="hidden">
+        <div class="judge" id="judge"></div>
         <div class="mine hidden" id="mineBox"></div>
         <div class="answer"><div class="lbl">答え</div><div class="txt" id="aText"></div></div>
         <div class="point hidden" id="pBox"><div class="lbl">⭐ ポイント</div><div id="pText"></div></div>
-        <div class="grade-q">自分の答えはどうだった？</div>
-        <div class="grade">
-          <button class="g-o" data-g="o">○<small>正解</small></button>
-          <button class="g-s" data-g="s">△<small>おしい</small></button>
-          <button class="g-x" data-g="x">×<small>まちがい</small></button>
-        </div>
-      </div>
-
-      <div class="qnav">
-        <button class="mini" id="prevBtn">← 前の問題</button>
-        <button class="mini" id="skipBtn">とばす →</button>
+        <button class="btn-main btn-wide" id="nextBtn" style="margin-top:14px">次の問題へ</button>
       </div>
     </div>
   </section>
@@ -184,20 +183,20 @@ footer{text-align:center;font-size:12px;color:var(--sub);margin-top:30px}
     <div class="card score">
       <div style="color:var(--sub);font-size:14px">あなたの得点</div>
       <div class="big" id="rPct">0<small>点</small></div>
-      <div class="tally"><span class="o" id="rO"></span><span class="s" id="rS"></span><span class="x" id="rX"></span></div>
+      <div class="tally"><span class="o" id="rO"></span><span class="x" id="rX"></span></div>
       <div class="msg" id="rMsg"></div>
-      <div class="hint" style="margin-top:6px">○＝1点、△＝0.5点として100点満点に換算</div>
+      <div class="rbest" id="rBest"></div>
     </div>
     <div class="card">
       <h2>範囲別の成績</h2>
       <table id="rTable"></table>
     </div>
     <div class="card" id="rReviewCard">
-      <h2>見直そう（△・×・とばした問題）</h2>
+      <h2>見直そう（まちがえた問題）</h2>
       <div id="rReview"></div>
     </div>
     <div class="stack">
-      <button class="btn-main btn-wide" id="rRetry">△・×の問題にもう一度チャレンジ</button>
+      <button class="btn-main btn-wide" id="rRetry">まちがえた問題にもう一度チャレンジ</button>
       <button class="btn-wide" id="rTop">トップにもどる</button>
     </div>
   </section>
@@ -381,7 +380,7 @@ const Q = [
 /* ============ 状態 ============ */
 const $ = id => document.getElementById(id);
 const LS_KEY = "rekishi50_v1";
-let st = {queue:[], pos:0, marks:{}, revealed:false, mine:{}};
+let st = {queue:[], pos:0, marks:{}, revealed:false, mine:{}, streak:0, maxStreak:0};
 
 function load(){ try{ return JSON.parse(localStorage.getItem(LS_KEY)) || {}; }catch(e){ return {}; } }
 function save(obj){ try{ localStorage.setItem(LS_KEY, JSON.stringify(obj)); }catch(e){} }
@@ -423,12 +422,12 @@ function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.rando
 function begin(nums){
   if(!nums.length){ alertBox("出題する範囲を1つ以上えらんでね。"); return; }
   if($("optRandom").checked) shuffle(nums);
-  st = {queue:nums, pos:0, marks:{}, revealed:false, mine:{}};
+  st = {queue:nums, pos:0, marks:{}, revealed:false, mine:{}, streak:0, maxStreak:0};
   show("quiz"); renderQ();
 }
 function alertBox(msg){
   const p = document.createElement("p");
-  p.textContent = msg; p.style.cssText="color:var(--ng);text-align:center;font-weight:700";
+  p.textContent = msg; p.style.cssText="color:#ffb4a8;text-align:center;font-weight:700";
   $("startBtn").before(p); setTimeout(()=>p.remove(),2500);
 }
 $("startBtn").onclick = ()=>{
@@ -438,6 +437,92 @@ $("startBtn").onclick = ()=>{
 };
 $("retryWrongBtn").onclick = ()=>begin([...(saved.wrong||[])]);
 $("listBtn").onclick = ()=>{ buildList(); show("list"); };
+
+/* ============ 判定用キーワード ============
+   g: キーワードのグループ（各グループのどれか1つが入っていればOK）
+   need: いくつのグループが入っていれば正解か（省略＝全部）
+   alt: 入力全体がこれと一致すれば正解
+   order: この順番で名前が並んでいれば正解                        */
+const KEYS = {
+ 1:{g:[["打製石器","だせいせっき"]]},
+ 2:{g:[["ナウマンゾウ"],["オオツノジカ"],["マンモス"],["ヘラジカ"],["野牛","やぎゅう","バイソン"]],need:2},
+ 3:{g:[["石器","せっき"],["旧石器","きゅうせっき","打製","だせい","ローム"]]},
+ 4:{g:[["貝塚","かいづか"],["食べ","たべ","食料","食糧","しょくりょう","生活","せいかつ","くらし","暮らし","道具","どうぐ"]]},
+ 5:{g:[["土器","どき"]]},
+ 6:{g:[["土偶","どぐう"]]},
+ 7:{g:[["むら","村"],["定住","ていじゅう","住みつ","すみつ","住み着","住むよう","すむよう","同じ場所","おなじばしょ","一か所","一カ所","一ヶ所"]]},
+ 8:{g:[["青銅","せいどう"],["鉄","てつ","てっき"]]},
+ 9:{g:[["朝鮮","ちょうせん","中国","ちゅうごく"]]},
+ 10:{g:[["土地","とち","水","みず","米","こめ","田","収穫","しゅうかく","たくわえ","蓄え"],["争","あらそ","うば","奪","戦","たたか"]]},
+ 11:{g:[["大和","やまと"],["政権","朝廷","王権","せいけん","ちょうてい","おうけん"]]},
+ 12:{g:[["埴輪","はにわ"]]},
+ 13:{g:[["前方後円","ぜんぽうこうえん"]]},
+ 14:{g:[["氏姓","しせい"],["氏","うじ"],["まとめ","集団","しゅうだん","地位","ちい","役割","やくわり","あたえ","与え","従え","したがえ","身分","みぶん"]]},
+ 15:{g:[["冠位十二階","かんいじゅうにかい"]]},
+ 16:{g:[["和","わをもって","協力","きょうりょく","争わ","あらそわ","仲良","なかよ","仏","ほとけ","三宝","さんぽう","天皇","てんのう"]]},
+ 17:{g:[["遣隋使","けんずいし"],["小野妹子","おののいもこ"]]},
+ 18:{g:[["乙巳","いっし"]]},
+ 19:{g:[["公地公民","こうちこうみん"]]},
+ 20:{g:[["庚午年籍","こうごねんじゃく"]]},
+ 21:{g:[["壬申","じんしん"],["大海人","おおあま","天武","てんむ"]]},
+ 22:{g:[["天武","てんむ"]]},
+ 23:{g:[["大宝律令","たいほうりつりょう"],["不比等","ふひと","刑部親王","おさかべ"]]},
+ 24:{g:[["神祇官","じんぎかん"]]},
+ 25:{g:[["班田収授","はんでんしゅうじゅ"]]},
+ 26:{g:[["租"],["庸"],["調"]],alt:["そようちょう"]},
+ 27:{g:[["墾田永年私財","こんでんえいねんしざい"]]},
+ 28:{g:[["永久","えいきゅう","ずっと","永年","えいねん","いつまでも","永遠","えいえん"],["開墾","かいこん","開いた","ひらいた","切り開","きりひら","新しく","あたらしく","新た","あらた","開発","かいはつ"],["所有","しょゆう","自分","じぶん","私有","しゆう","私財","しざい"]]},
+ 29:{g:[["国分寺","こくぶんじ"],["東大寺","とうだいじ"]]},
+ 30:{g:[["仏教","ぶっきょう","仏","ほとけ"],["守","まも","安定","あんてい","平和","へいわ","しず","鎮","静","治め","おさめ","不安","ふあん","安らか","やすらか","救","すく"]]},
+ 31:{g:[["鑑真","がんじん"],["唐招提寺","とうしょうだいじ"]]},
+ 32:{g:[["天平","てんぴょう"]]},
+ 33:{g:[["仏教","ぶっきょう","寺","てら","僧","坊さん","ぼうさん","お坊","道鏡","どうきょう"],["政治","せいじ","口出","くちだ","力","えいきょう","影響","離","はな","遠ざ","とおざ","介入"]]},
+ 34:{g:[["田村麻呂","たむらまろ"],["征夷大将軍","せいいたいしょうぐん"]]},
+ 35:{g:[["天台","てんだい"],["延暦寺","えんりゃくじ"]]},
+ 36:{g:[["真言","しんごん"],["金剛峯寺","金剛峰寺","こんごうぶじ"]]},
+ 37:{g:[["仏教","ぶっきょう"],["学","まな","勉強","べんきょう","修行","しゅぎょう","教え","おしえ","伝え","つたえ"]]},
+ 38:{g:[["唐","とう"],["衰","おとろ","乱","みだ","弱","よわ","ほろ","滅","危","あぶな","荒","あれて"]]},
+ 39:{g:[["国風","こくふう"]]},
+ 40:{g:[["源氏物語","げんじものがたり"],["枕草子","まくらのそうし"],["古今和歌集","こきんわかしゅう"],["土佐日記","とさにっき"],["竹取物語","たけとりものがたり"],["更級日記","さらしなにっき"],["蜻蛉日記","かげろうにっき"],["伊勢物語","いせものがたり"]],need:2},
+ 41:{g:[["娘","むすめ"],["后","きさき","妃","嫁","よめ","結婚","けっこん","妻","つま"],["祖父","そふ","おじいさん","外戚","がいせき","孫","まご","生まれた","うまれた","子","こども"]]},
+ 42:{g:[["娘","むすめ","威子","彰子","后","きさき"],["権力","けんりょく","力","ちから","絶頂","ぜっちょう","思い通り","思いどおり","おもいどおり","満月","まんげつ","欠け","かけ","全盛","ぜんせい","最高","さいこう","栄え","さかえ"]]},
+ 43:{g:[["頼通","よりみち"]]},
+ 44:{g:[["摂政","せっしょう"],["関白","かんぱく"]]},
+ 45:{g:[["武士","ぶし","侍","さむらい"]]},
+ 46:{g:[["国司","こくし","地方","ちほう"],["まとめ","統率","とうそつ","率い","ひきい","従え","したがえ","棟梁","とうりょう","かしら","集め","あつめ","リーダー","束ね","たばね"]]},
+ 47:{g:[["将門","まさかど"]]},
+ 48:{g:[["純友","すみとも"]]},
+ 49:{g:[["源氏物語","げんじものがたり","枕草子","まくらのそうし","古今和歌集","こきんわかしゅう","土佐日記","とさにっき","竹取物語","たけとりものがたり","更級日記","蜻蛉日記","伊勢物語"],
+        ["寝殿造","しんでんづくり","平等院","びょうどういん","鳳凰堂","ほうおうどう","中尊寺","ちゅうそんじ"],
+        ["大和絵","やまとえ","絵巻","えまき"]]},
+ 50:{order:[["聖徳太子","しょうとくたいし","厩戸","うまやど"],["聖武","しょうむ"],["桓武","かんむ"],["空海","くうかい"],["道長","みちなが"]]}
+};
+const HINTS = {
+ 2:"動物を2つ書いてね。", 8:"2種類書いてね。", 26:"3つ書いてね。", 40:"作品を2つ書いてね。",
+ 49:"①～③を1つずつ書いてね。",
+ 50:"並び順で判定します（出来事は答えを見て確認しよう）。"
+};
+
+/* 表記ゆれを吸収：全角半角・カタカナ→ひらがな・記号や空白を除く */
+function norm(t){
+  return (t||"").normalize("NFKC")
+    .replace(/[ァ-ヶ]/g, c=>String.fromCharCode(c.charCodeAt(0)-0x60))
+    .replace(/[\s、。，．,.・･\/「」『』（）()【】\[\]〈〉《》!?！？ー―\-〜~：:；;→⇒>＜<＞①②③④⑤]/g,"");
+}
+function judge(q, input){
+  const k = KEYS[q.n], t = norm(input);
+  if(!t) return false;
+  if(k.alt && k.alt.some(a=>norm(a)===t)) return true;
+  if(k.order){
+    const pos = k.order.map(al=>{
+      const idx = al.map(w=>t.indexOf(norm(w))).filter(i=>i>=0);
+      return idx.length ? Math.min(...idx) : -1;
+    });
+    return pos.every(p=>p>=0) && pos.every((p,i)=>i===0 || p>pos[i-1]);
+  }
+  const hit = k.g.filter(grp=>grp.some(w=>t.includes(norm(w)))).length;
+  return hit >= (k.need ?? k.g.length);
+}
 
 /* ============ 出題 ============ */
 const qOf = n => Q.find(q=>q.n===n);
@@ -451,17 +536,33 @@ function renderQ(){
   $("qNo").append("第" + q.n + "問");
   if(q.star){ const s=document.createElement("span"); s.className="star"; s.textContent="差がつく"; $("qNo").append(s); }
   $("qText").textContent = q.q;
-  $("myAns").value = st.mine[n] || "";
+  $("qHint").textContent = HINTS[n] || "記述問題は、大事なキーワードが入っているかで判定します。";
+  $("myAns").value = "";
+  $("emptyWarn").classList.add("hidden");
   st.revealed = false;
   $("beforeReveal").classList.remove("hidden");
   $("afterReveal").classList.add("hidden");
-  $("prevBtn").disabled = st.pos===0;
-  $("skipBtn").textContent = st.pos===total-1 ? "結果を見る →" : "とばす →";
+  $("nextBtn").textContent = st.pos===total-1 ? "結果を見る" : "次の問題へ";
+  showStreak();
+  setTimeout(()=>$("myAns").focus({preventScroll:true}), 50);
 }
-$("revealBtn").onclick = ()=>{
+function reveal(giveup){
   const n = st.queue[st.pos], q = qOf(n);
   const mine = $("myAns").value.trim();
+  if(!giveup && !mine){ $("emptyWarn").classList.remove("hidden"); return; }
+  const ok = !giveup && judge(q, mine);
   st.mine[n] = mine;
+  st.marks[n] = ok ? "o" : "x";
+  const lost = st.streak;
+  st.streak = ok ? st.streak + 1 : 0;
+  st.maxStreak = Math.max(st.maxStreak, st.streak);
+  showStreak();
+  const j = $("judge");
+  j.className = "judge " + (ok ? "ok" : "ng");
+  j.innerHTML = "";
+  j.append(ok ? "⭕ 正解！" : (giveup ? "答えを確認しよう" : "❌ 不正解"));
+  if(ok && st.streak>=2){ const c=document.createElement("span"); c.className="combo"; c.textContent="🔥 連続" + st.streak + "問正解中！"; j.append(c); }
+  if(!ok && !giveup){ const sm=document.createElement("small"); sm.textContent = lost>=2 ? "連続正解は" + lost + "問でストップ… 答えとポイントを確認しよう" : "答えとポイントを確認しよう"; j.append(sm); }
   $("mineBox").classList.toggle("hidden", !mine);
   $("mineBox").textContent = mine ? "あなたの答え：" + mine : "";
   $("aText").textContent = q.a;
@@ -470,42 +571,49 @@ $("revealBtn").onclick = ()=>{
   $("beforeReveal").classList.add("hidden");
   $("afterReveal").classList.remove("hidden");
   st.revealed = true;
-  // 既に採点済みならハイライト
-  document.querySelectorAll(".grade button").forEach(b=>b.style.background = st.marks[n]===b.dataset.g ? "var(--ans)" : "");
-};
-document.querySelectorAll(".grade button").forEach(b=>{
-  b.onclick = ()=>{ st.marks[st.queue[st.pos]] = b.dataset.g; next(); };
+  $("nextBtn").focus({preventScroll:true});
+}
+function showStreak(){
+  const el = $("streak");
+  el.classList.toggle("hidden", st.streak < 2);
+  el.classList.toggle("big", st.streak >= 5);
+  el.textContent = "🔥 連続" + st.streak + "問正解中";
+}
+$("checkBtn").onclick = ()=>reveal(false);
+$("giveupBtn").onclick = ()=>reveal(true);
+$("myAns").addEventListener("keydown", e=>{
+  if(e.key==="Enter" && !e.shiftKey && !e.isComposing && e.keyCode!==229){ e.preventDefault(); reveal(false); }
 });
+$("nextBtn").onclick = ()=>next();
 function next(){
   if(st.pos < st.queue.length-1){ st.pos++; renderQ(); } else finish();
 }
-$("skipBtn").onclick = ()=>{ st.mine[st.queue[st.pos]] = $("myAns").value.trim(); next(); };
-$("prevBtn").onclick = ()=>{ if(st.pos>0){ st.mine[st.queue[st.pos]] = $("myAns").value.trim(); st.pos--; renderQ(); } };
 $("quitBtn").onclick = ()=>finish(true);
 
 /* ============ 結果 ============ */
 function finish(quit){
-  const asked = quit ? st.queue.slice(0, st.pos + (st.marks[st.queue[st.pos]]?1:0)) : st.queue;
-  const list = asked.length ? asked : st.queue.slice(0,0);
-  let o=0,s=0,x=0,skip=0;
-  list.forEach(n=>{ const m=st.marks[n]; if(m==="o")o++; else if(m==="s")s++; else if(m==="x")x++; else skip++; });
+  const list = st.queue.filter(n=>st.marks[n]);
+  let o=0,x=0;
+  list.forEach(n=>{ if(st.marks[n]==="o")o++; else x++; });
   const total = list.length;
-  const pct = total ? Math.round((o + s*0.5)/total*100) : 0;
+  const pct = total ? Math.round(o/total*100) : 0;
   $("rPct").innerHTML = ""; $("rPct").append(String(pct)); const sm=document.createElement("small"); sm.textContent="点"; $("rPct").append(sm);
-  $("rO").textContent = "○ " + o; $("rS").textContent = "△ " + s; $("rX").textContent = "× " + x + (skip? "　（とばし " + skip + "）":"");
+  $("rO").textContent = "正解 " + o + "問"; $("rX").textContent = "不正解 " + x + "問";
   $("rMsg").textContent = total===0 ? "まだ1問も答えていません。" :
     pct>=90 ? "すばらしい！上位をねらえる実力です。" :
-    pct>=70 ? "よくできました！△・×を見直せば完ぺき。" :
+    pct>=70 ? "よくできました！まちがえた問題を見直せば完ぺき。" :
     pct>=50 ? "あと一歩！流れ（因果関係）を意識して復習しよう。" :
               "解答一覧で流れをつかんでから、もう一度チャレンジ！";
 
+  $("rBest").textContent = st.maxStreak>=2 ? "🔥 最高 " + st.maxStreak + "問連続正解！" : "";
+  saved.bestStreak = Math.max(saved.bestStreak||0, st.maxStreak);
   // 範囲別
   const tb = $("rTable"); tb.innerHTML = "<tr><th>範囲</th><th></th><th style='text-align:right'>得点率</th></tr>";
   saved.best = saved.best || {};
   SECTIONS.forEach(sec=>{
     const ns = list.filter(n=>qOf(n).s===sec.id);
     if(!ns.length) return;
-    const sc = ns.reduce((a,n)=>a + (st.marks[n]==="o"?1:st.marks[n]==="s"?.5:0),0);
+    const sc = ns.filter(n=>st.marks[n]==="o").length;
     const p = Math.round(sc/ns.length*100);
     // 範囲の全問を解いたときだけ最高記録を更新
     if(ns.length === Q.filter(q=>q.s===sec.id).length && (saved.best[sec.id]==null || p>saved.best[sec.id])) saved.best[sec.id]=p;
@@ -524,7 +632,7 @@ function finish(quit){
     const q=qOf(n), m=st.marks[n];
     const d=document.createElement("div"); d.className="rev";
     const h=document.createElement("div"); h.className="h";
-    const mk=document.createElement("span"); mk.className="mark "+(m||"x"); mk.textContent = m==="s"?"△":m==="x"?"×":"－";
+    const mk=document.createElement("span"); mk.className="mark "+(m||"x"); mk.textContent = "×";
     const t=document.createElement("span"); t.textContent="第"+n+"問";
     h.append(mk,t);
     const qq=document.createElement("div"); qq.className="q"; qq.textContent=q.q;
@@ -537,7 +645,7 @@ function finish(quit){
 
   // 「まちがえた問題」を記録（今回出題した分を更新）
   const set = new Set(saved.wrong||[]);
-  list.forEach(n=>{ if(st.marks[n]==="o") set.delete(n); else if(st.marks[n]) set.add(n); });
+  list.forEach(n=>{ if(st.marks[n]==="o") set.delete(n); else set.add(n); });
   saved.wrong = [...set].sort((a,b)=>a-b);
   save(saved);
 
